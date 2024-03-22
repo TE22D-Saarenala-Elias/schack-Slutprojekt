@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "pGf6L23EKre0Mtym28tRmXkQzoKLQcCWfB+kgHKEpbp7uJhmJynAuCmxw5LM8oOrdRguxdZINBGE7ArbSyU7Qw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\elias.saarenala\\programmering med Micke\\schack Slutprojekt\\schack Slutprojekt\\schack Slutprojekt.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\elias.saarenala\\.nuget\\packages\\raylib-cs\\6.0.0\\raylib-cs.6.0.0.nupkg.sha512",
+    "C:\\Users\\elias.saarenala\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512"
+  ],
+  "logs": []
+}
