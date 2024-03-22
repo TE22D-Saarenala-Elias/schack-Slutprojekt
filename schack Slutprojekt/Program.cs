@@ -8,7 +8,6 @@ Raylib.SetTargetFPS(60);
 
 
 
-
 Vtorn[] Vts;
 Vhäst[] Vhs;
 Vknäkt[] Vkns;
@@ -207,7 +206,7 @@ if ((Skung.x < Vkung.x + 25 && Skung.x+25 > Vkung.x ) &&
     }           
     
 if ((Skung.x < Vhs[0].x+50 && Skung.x > Vhs[0].x-25) &&
-    (Skung.y < Vhs[0].y+75 && Skung.y > Vhs[0].y-25)&& placerad)// kollar så att vita hästens hitbox koliderar med svarta kungens hitbox, samt 
+    (Skung.y < Vhs[0].y+75 && Skung.y > Vhs[0].y-25)&& placerad)//  kollar så att vita hästens hitbox koliderar med svarta kungens hitbox, samt 
     {                                                             // att pjäsen är placerad innan kungen blir tagen och skickas till sidobrädet 
         Skung.x= 825;
         Skung.y= 20;
