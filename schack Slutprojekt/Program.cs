@@ -74,45 +74,37 @@ for (int r = 0; r < 8; r++){
 //                              RENDERING
 //---------------------------------------------------------------------------------------------------------------------
 
+ int[] rutaXPosition ={/*rad 8*/0,100,200,300,400,500,600,700,
+                       /*rad 7*/0,100,200,300,400,500,600,700,
+                       /*rad 6*/0,100,200,300,400,500,600,700,
+                       /*rad 5*/0,100,200,300,400,500,600,700,
+                       /*rad 4*/0,100,200,300,400,500,600,700,
+                       /*rad 3*/0,100,200,300,400,500,600,700,
+                       /*rad 2*/0,100,200,300,400,500,600,700,
+                       /*rad 1*/0,100,200,300,400,500,600,700, };
 
-int rigtSide1 = 600;
-int rigtSide2 = 700;
-int i = 0;
-
+  int[] rutaYPosition ={/*rad 8*/0  ,0  ,0  ,0  ,0  ,0  ,0  ,0  ,
+                        /*rad 7*/100,100,100,100,100,100,100,100,
+                        /*rad 6*/200,200,200,200,200,200,200,200,
+                        /*rad 5*/300,300,300,300,300,300,300,300,
+                        /*rad 4*/400,400,400,400,400,400,400,400,
+                        /*rad 3*/500,500,500,500,500,500,500,500,
+                        /*rad 2*/600,600,600,600,600,600,600,600,
+                        /*rad 1*/700,700,700,700,700,700,700,700, };
 Raylib.BeginDrawing();
-for (int x = 0; x < 901; x =x+200){     //--------------------------------------
-                     
-  Raylib.DrawRectangle(x,i,100,100,Color.Black);                      // x = x-kordinaten för de svarta rutorna
-  if (i >= 800) {                       // i = y-kordinaten för de svarta rutorna
-    x = 901;
+ 
+ Raylib.DrawRectangle(800, 0, 200, 800, Color.White); //rectangeln för sidobrädet där alla tagna pjäser hamnar
+for (int vilkenRuta = 0; vilkenRuta < rutaXPosition.Length; vilkenRuta++)
+{             /* % betyder modulo. ifall resten är 0 så är talet jämt och ifall resten 1 så är talet ojämt*/
+  if ((vilkenRuta%2==0 && rutaYPosition[vilkenRuta]%200==0)||(vilkenRuta%2==1 && rutaYPosition[vilkenRuta]%200==100)){  
+  Raylib.DrawRectangle(rutaXPosition[vilkenRuta],rutaYPosition[vilkenRuta],100,100, Color.Black);
   }
-  if (x == rigtSide1) {
-     x = -100;                           //funktionen som skappar svarta rutor
-     i += 100;
-      }
-  if (x == rigtSide2) {
-     x = -200;
-     i += 100;
-      }                           //----------------------------------------------
+  if((vilkenRuta%2==1 && rutaYPosition[vilkenRuta]%200==0)||(vilkenRuta%2==0 && rutaYPosition[vilkenRuta]%200==100)){  
+  Raylib.DrawRectangle(rutaXPosition[vilkenRuta],rutaYPosition[vilkenRuta],100,100, Color.Green);
+  }
 }
-                                    //--------------------------------------
-     int l = 0;
-      for (int z = 100; z < 901; z =z+200){     //funktionen som skappar gröna rutor
-    Raylib.DrawRectangle(z,l,100,100,Color.Green);       //z = x-kordinaten för gröna fyrkanten
-  if (l >= 800) {
-    z = 901;                                   // l = y-kordinaten för gröna fyrkanten
-  }
-  if (z == rigtSide1+100) {
-     z = -200;                           
-     l += 100;
-      }                                  
-  if (z == rigtSide2+100) {
-     z = -100;                          
-     l += 100;
-      }   
-      }
-      Raylib.DrawRectangle(800,0,1000,800,Color.White);     // Sidobrädet för tagna pjäser
-                                   //--------------------------------------------
+
+//---------------------------------------------------------------------------------------------------------------------------------------
       
     
   

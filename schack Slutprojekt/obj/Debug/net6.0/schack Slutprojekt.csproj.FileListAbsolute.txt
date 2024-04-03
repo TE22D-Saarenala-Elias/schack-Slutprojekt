@@ -1,0 +1,34 @@
+c:\Users\elias.saarenala\programmering med Micke\schack Slutprojekt\schack Slutprojekt\bin\Debug\net6.0\schack Slutprojekt.exe
+c:\Users\elias.saarenala\programmering med Micke\schack Slutprojekt\schack Slutprojekt\bin\Debug\net6.0\svart_bonde.png
+c:\Users\elias.saarenala\programmering med Micke\schack Slutprojekt\schack Slutprojekt\bin\Debug\net6.0\svart_drottning.png
+c:\Users\elias.saarenala\programmering med Micke\schack Slutprojekt\schack Slutprojekt\bin\Debug\net6.0\svart_häst.png
+c:\Users\elias.saarenala\programmering med Micke\schack Slutprojekt\schack Slutprojekt\bin\Debug\net6.0\svart_knäkt.png
+c:\Users\elias.saarenala\programmering med Micke\schack Slutprojekt\schack Slutprojekt\bin\Debug\net6.0\svart_kung.png
+c:\Users\elias.saarenala\programmering med Micke\schack Slutprojekt\schack Slutprojekt\bin\Debug\net6.0\svart_torn.png
+c:\Users\elias.saarenala\programmering med Micke\schack Slutprojekt\schack Slutprojekt\bin\Debug\net6.0\vit_bonde.png
+c:\Users\elias.saarenala\programmering med Micke\schack Slutprojekt\schack Slutprojekt\bin\Debug\net6.0\vit_drottning.png
+c:\Users\elias.saarenala\programmering med Micke\schack Slutprojekt\schack Slutprojekt\bin\Debug\net6.0\vit_häst.png
+c:\Users\elias.saarenala\programmering med Micke\schack Slutprojekt\schack Slutprojekt\bin\Debug\net6.0\vit_knäkt.png
+c:\Users\elias.saarenala\programmering med Micke\schack Slutprojekt\schack Slutprojekt\bin\Debug\net6.0\vit_kung.png
+c:\Users\elias.saarenala\programmering med Micke\schack Slutprojekt\schack Slutprojekt\bin\Debug\net6.0\vit_torn.png
+c:\Users\elias.saarenala\programmering med Micke\schack Slutprojekt\schack Slutprojekt\bin\Debug\net6.0\schack Slutprojekt.deps.json
+c:\Users\elias.saarenala\programmering med Micke\schack Slutprojekt\schack Slutprojekt\bin\Debug\net6.0\schack Slutprojekt.runtimeconfig.json
+c:\Users\elias.saarenala\programmering med Micke\schack Slutprojekt\schack Slutprojekt\bin\Debug\net6.0\schack Slutprojekt.dll
+c:\Users\elias.saarenala\programmering med Micke\schack Slutprojekt\schack Slutprojekt\bin\Debug\net6.0\schack Slutprojekt.pdb
+c:\Users\elias.saarenala\programmering med Micke\schack Slutprojekt\schack Slutprojekt\bin\Debug\net6.0\Raylib-cs.dll
+c:\Users\elias.saarenala\programmering med Micke\schack Slutprojekt\schack Slutprojekt\bin\Debug\net6.0\runtimes\linux-x64\native\libraylib.so
+c:\Users\elias.saarenala\programmering med Micke\schack Slutprojekt\schack Slutprojekt\bin\Debug\net6.0\runtimes\osx-arm64\native\libraylib.dylib
+c:\Users\elias.saarenala\programmering med Micke\schack Slutprojekt\schack Slutprojekt\bin\Debug\net6.0\runtimes\osx-x64\native\libraylib.dylib
+c:\Users\elias.saarenala\programmering med Micke\schack Slutprojekt\schack Slutprojekt\bin\Debug\net6.0\runtimes\win-x64\native\raylib.dll
+c:\Users\elias.saarenala\programmering med Micke\schack Slutprojekt\schack Slutprojekt\bin\Debug\net6.0\runtimes\win-x86\native\raylib.dll
+c:\Users\elias.saarenala\programmering med Micke\schack Slutprojekt\schack Slutprojekt\obj\Debug\net6.0\schack Slutprojekt.csproj.AssemblyReference.cache
+c:\Users\elias.saarenala\programmering med Micke\schack Slutprojekt\schack Slutprojekt\obj\Debug\net6.0\schack Slutprojekt.GeneratedMSBuildEditorConfig.editorconfig
+c:\Users\elias.saarenala\programmering med Micke\schack Slutprojekt\schack Slutprojekt\obj\Debug\net6.0\schack Slutprojekt.AssemblyInfoInputs.cache
+c:\Users\elias.saarenala\programmering med Micke\schack Slutprojekt\schack Slutprojekt\obj\Debug\net6.0\schack Slutprojekt.AssemblyInfo.cs
+c:\Users\elias.saarenala\programmering med Micke\schack Slutprojekt\schack Slutprojekt\obj\Debug\net6.0\schack Slutprojekt.csproj.CoreCompileInputs.cache
+c:\Users\elias.saarenala\programmering med Micke\schack Slutprojekt\schack Slutprojekt\obj\Debug\net6.0\schack Slutprojekt.csproj.CopyComplete
+c:\Users\elias.saarenala\programmering med Micke\schack Slutprojekt\schack Slutprojekt\obj\Debug\net6.0\schack Slutprojekt.dll
+c:\Users\elias.saarenala\programmering med Micke\schack Slutprojekt\schack Slutprojekt\obj\Debug\net6.0\refint\schack Slutprojekt.dll
+c:\Users\elias.saarenala\programmering med Micke\schack Slutprojekt\schack Slutprojekt\obj\Debug\net6.0\schack Slutprojekt.pdb
+c:\Users\elias.saarenala\programmering med Micke\schack Slutprojekt\schack Slutprojekt\obj\Debug\net6.0\schack Slutprojekt.genruntimeconfig.cache
+c:\Users\elias.saarenala\programmering med Micke\schack Slutprojekt\schack Slutprojekt\obj\Debug\net6.0\ref\schack Slutprojekt.dll
