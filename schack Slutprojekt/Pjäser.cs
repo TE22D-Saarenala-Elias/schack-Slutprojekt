@@ -1,11 +1,11 @@
 using System.Numerics;
 using Raylib_cs;
-// public class vp{
- class Vkung
+public class Allapjäser{
+ public class Vkung
 {
    public Vector2 position;
    public Vector2 tagen= new(825,20);
-    Texture2D imgVku = Raylib.LoadTexture("C:/Users/elias.saarenala/programmering med Micke/shack Winterprojekt 2/shack Winterprojekt 2/vit_kung.png");
+    Texture2D imgVku = Raylib.LoadTexture("vit_kung.png");
 
     public void display()
     {
@@ -17,13 +17,34 @@ using Raylib_cs;
     //     svart parti vann
     // }
 
+    public void gångStil(){
+ for (int CircleX = 0; CircleX < 3; CircleX++)
+    {
+      for (int CircleY = 0; CircleY < 3; CircleY++)
+      {
+        if (position.X == 25 && CircleX == 0) { CircleX = 1; }
+
+        if (position.Y == 20 && CircleY == 0) { CircleY = 1; }
+        if (!((CircleX == 1) && (CircleY == 1)))
+        {
+          Raylib.DrawCircle((int)position.X - 100 + (100 * CircleX) + 25, (int)position.Y - 100 + (100 * CircleY) + 30, 10, Raylib_cs.Color.Blue);
+          Raylib.DrawLine((int)position.X + 19, (int)position.Y + 30, (int)position.X - 100 + (100 * CircleX) + 25, (int)position.Y - 100 + (100 * CircleY) + 30, Raylib_cs.Color.Blue);
+        }
+        if (position.Y == 720 && CircleY == 1) { CircleY = 2; }
+        
+
+      }if (position.X==725 && CircleX == 1)  {CircleX=2;  }
+    }
+  
+ }
+
 }
 
-class Vdrottning
+public class Vdrottning
 {
 public Vector2 tagen= new(925,20);
  public Vector2 position;
- Texture2D imgVd = Raylib.LoadTexture("C:/Users/elias.saarenala/programmering med Micke/shack Winterprojekt 2/shack Winterprojekt 2/vit_drottning.png");
+ Texture2D imgVd = Raylib.LoadTexture("vit_drottning.png");
 
     public void display()
     {
@@ -31,10 +52,10 @@ public Vector2 tagen= new(925,20);
     }
 }
 
-class Vtorn
+public class Vtorn
 {
    public Vector2 position;
-    Texture2D imgVt = Raylib.LoadTexture("C:/Users/elias.saarenala/programmering med Micke/shack Winterprojekt 2/shack Winterprojekt 2/vit_torn.png");
+    Texture2D imgVt = Raylib.LoadTexture("vit_torn.png");
 
     public void display()
     {
@@ -44,16 +65,14 @@ class Vtorn
    
 }
 
-class Vknäkt
+public class Vknäkt
 {
     public Vector2 position;
     
-    //225
-    //720
- Texture2D imgVkn = Raylib.LoadTexture("C:/Users/elias.saarenala/programmering med Micke/shack Winterprojekt 2/shack Winterprojekt 2/vit_knäkt.png");
+ Texture2D imgVkn = Raylib.LoadTexture("vit_knäkt.png");
     public void display()
     {    
-               Raylib.DrawTexture(imgVkn, (int) position.X, (int) position.Y, Color.White); //x är x-kordinaten för knäkten och y är y-kordinaten för knäkten 
+               Raylib.DrawTexture(imgVkn, (int) position.X, (int) position.Y, Color.White); //position.x är x-kordinaten för knäkten och position.y är y-kordinaten för knäkten 
     }                           //imgVkn=image Vit Knäkt
 
 }
@@ -61,7 +80,7 @@ class Vknäkt
  public class Vhäst
 {
      public Vector2 position;
- Texture2D imgVh = Raylib.LoadTexture("C:/Users/elias.saarenala/programmering med Micke/shack Winterprojekt 2/shack Winterprojekt 2/vit_häst.png");
+ Texture2D imgVh = Raylib.LoadTexture("vit_häst.png");
       
    public void display() 
     {
@@ -69,88 +88,80 @@ class Vknäkt
     }
 }
 
-class Vbonde
+public class Vbonde
 {
    public Vector2 position;
   
-Texture2D imgVb = Raylib.LoadTexture("C:/Users/elias.saarenala/programmering med Micke/shack Winterprojekt 2/shack Winterprojekt 2/vit_bonde.png");
+Texture2D img = Raylib.LoadTexture("vit_bonde.png");
  
    public void display() 
    {
-    Raylib.DrawTexture(imgVb, (int) position.X, (int) position.Y, Color.White); 
+    Raylib.DrawTexture(img, (int) position.X, (int) position.Y, Color.White); 
    }
 }
-// }
-//-----------------------------------------------------------------------------------------------------------------------------------------------------
-// public class sp{
+
 public class Skung
 {
-    public int x=325;
-    public int y=20;
-    Texture2D imgsku = Raylib.LoadTexture("svart_kung.png");
+    public Vector2 position;
+    Texture2D img = Raylib.LoadTexture("svart_kung.png");
        
     public void display()
     {
-        Raylib.DrawTexture(imgsku, x, y, Color.White);
+        Raylib.DrawTexture(img, (int) position.X, (int) position.Y, Color.White);
     }
 }
 
-class Sdrottning
+public class Sdrottning
 {
-    public int x;
-    public int y;
-    Texture2D imgsd = Raylib.LoadTexture("svart_drottning.png");
+    public Vector2 position;
+    Texture2D img = Raylib.LoadTexture("svart_drottning.png");
     public void display()
     {
-        Raylib.DrawTexture(imgsd, x, y, Color.White);
+        Raylib.DrawTexture(img, (int) position.X, (int) position.Y, Color.White);
     }
 }
 
-class Sknäkt
+public class Sknäkt
 {
-    public int x;
-    public int y;
-    Texture2D imgsku = Raylib.LoadTexture("svart_knäkt.png");
+    public Vector2 position;
+    Texture2D img = Raylib.LoadTexture("svart_knäkt.png");
     public void display()
     {
-        Raylib.DrawTexture(imgsku, x, y, Color.White);
+        Raylib.DrawTexture(img, (int) position.X, (int) position.Y, Color.White);
     }
 }
 
-class Shäst
+public class Shäst
 {
-    public int x;
-    public int y;
-    Texture2D imgsh = Raylib.LoadTexture("svart_häst.png");
+    public Vector2 position;
+    Texture2D img = Raylib.LoadTexture("svart_häst.png");
     public void display()
     {
-        Raylib.DrawTexture(imgsh, x, y, Color.White);
+        Raylib.DrawTexture(img, (int) position.X, (int) position.Y, Color.White);
     }
    
 }
 
-class Storn
+public class Storn
 {
-    public int x;
-    public int y;
-    Texture2D imgst = Raylib.LoadTexture("svart_torn.png");
+    public Vector2 position;
+    Texture2D img = Raylib.LoadTexture("svart_torn.png");
     public void display()
     {
-        Raylib.DrawTexture(imgst, x, y, Color.White);
+        Raylib.DrawTexture(img, (int) position.X, (int) position.Y, Color.White);
     }
    
 }
 
-class Sbonde
+public class Sbonde
 {
-    public int x; 
-    public int y;
-    Texture2D imgsb = Raylib.LoadTexture("svart_bonde.png");
+    public Vector2 position;
+    public Texture2D img = Raylib.LoadTexture("svart_bonde.png");
     public void display() 
     {
-         Raylib.DrawTexture(imgsb, x, y, Color.White); 
+         Raylib.DrawTexture(img, (int) position.X, (int) position.Y, Color.White); 
     }
 
 
 }
-// }
+}

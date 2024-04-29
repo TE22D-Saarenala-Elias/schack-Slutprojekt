@@ -8,55 +8,55 @@ Raylib.SetTargetFPS(540);
 
 
 
-Vtorn[] Vts;
-Vhäst[] Vhs;
-Vknäkt[] Vkns;
-Vbonde[] Vbs;
+Allapjäser.Vtorn[] Vts;
+Allapjäser.Vhäst[] Vhs;
+Allapjäser.Vknäkt[] Vkns;
+Allapjäser.Vbonde[] Vbs;
 
-Storn[] Sts;
-Shäst[] Shs;
-Sknäkt[] Skns;
-Sbonde[] Sbs;
+Allapjäser.Storn[] Sts;
+Allapjäser.Shäst[] Shs;
+Allapjäser.Sknäkt[] Skns;
+Allapjäser.Sbonde[] Sbs;
 
-Vts = new Vtorn[2];
-Vkns = new Vknäkt[2];
-Vhs = new Vhäst[2];
-Vbs = new Vbonde[8];
+Vts = new Allapjäser.Vtorn[2];
+Vkns = new Allapjäser.Vknäkt[2];
+Vhs = new Allapjäser.Vhäst[2];
+Vbs = new Allapjäser.Vbonde[8];
 
-Sts = new Storn[2];
-Skns = new Sknäkt[2];
-Shs = new Shäst[2];
-Sbs = new Sbonde[8];
+Sts = new Allapjäser.Storn[2];
+Skns = new Allapjäser.Sknäkt[2];
+Shs = new Allapjäser.Shäst[2];
+Sbs = new Allapjäser.Sbonde[8];
 
-Skung Skung = new Skung() { x = 325, y = 20 };                       // S står för svarta pjäser. t.ex Skung står för svart kung.
-Sdrottning Sdrottning = new Sdrottning() { x = 425, y = 20 };
-Sts[0] = new Storn() { x = 25, y = 20 };
-Sts[1] = new Storn() { x = 725, y = 20 };
+Allapjäser.Skung Skung = new Allapjäser.Skung() {position = new(325,20) };                       // S står för svarta pjäser. t.ex Skung står för svart kung.
+Allapjäser.Sdrottning Sdrottning = new Allapjäser.Sdrottning() { position = new(425,20) };
+Sts[0] = new Allapjäser.Storn() { position = new(25,20) };
+Sts[1] = new Allapjäser.Storn() { position = new(725,20) };
 
-Shs[0] = new Shäst() { x = 125, y = 20 };
-Shs[1] = new Shäst() { x = 625, y = 20 };
+Shs[0] = new Allapjäser.Shäst() { position = new(125,20) };
+Shs[1] = new Allapjäser.Shäst() { position = new(625,20) };
 
-Skns[0] = new Sknäkt() { x = 225, y = 20 };
-Skns[1] = new Sknäkt() { x = 525, y = 20 };
+Skns[0] = new Allapjäser.Sknäkt() { position = new(225,20) };
+Skns[1] = new Allapjäser.Sknäkt() { position = new(525,20) };
 
 int BondeX = 25;
 for (int r = 0; r < 8; r++)
 {
-  Sbs[r] = new Sbonde() { x = BondeX, y = 120 };
+  Sbs[r] = new Allapjäser.Sbonde() { position= new(BondeX, 120) };
   BondeX += 100;
 }
 
-Vkung Vkung = new Vkung() { position = new(325, 720) };          // V står för vita pjäser. t.ex Vkung står för vit kung.
-Vdrottning Vdrottning = new Vdrottning() { position = new(425, 720) };
+Allapjäser.Vkung Vkung = new Allapjäser.Vkung() { position = new(325, 720) };          // V står för vita pjäser. t.ex Vkung står för vit kung.
+Allapjäser.Vdrottning Vdrottning = new Allapjäser.Vdrottning() { position = new(425, 720) };
 
-Vkns[0] = new Vknäkt() { position = new(225, 720) };             //Vkns = (V)Vit (kn)Knäkt (s)flera/array av
-Vkns[1] = new Vknäkt() { position = new(520, 720) };
+Vkns[0] = new Allapjäser.Vknäkt() { position = new(225, 720) };             //Vkns = (V)Vit (kn)Knäkt (s)flera/array av
+Vkns[1] = new Allapjäser.Vknäkt() { position = new(525, 720) };
 
-Vhs[0] = new Vhäst() { position = new(125, 720) };
-Vhs[1] = new Vhäst() { position = new(625, 720) };
+Vhs[0] = new Allapjäser.Vhäst() { position = new(125, 720) };
+Vhs[1] = new Allapjäser.Vhäst() { position = new(625, 720) };
 
-Vts[0] = new Vtorn() { position = new(25, 720) };
-Vts[1] = new Vtorn() { position = new(725, 720) };
+Vts[0] = new Allapjäser.Vtorn() { position = new(25, 720) };
+Vts[1] = new Allapjäser.Vtorn() { position = new(725, 720) };
 
 
 
@@ -64,15 +64,13 @@ Vts[1] = new Vtorn() { position = new(725, 720) };
 BondeX = 25;
 for (int r = 0; r < 8; r++)
 {
-  Vbs[r] = new Vbonde() { };
-  Vbs[r].position.X = BondeX;
-  Vbs[r].position.Y = 625;
+  Vbs[r] = new Allapjäser.Vbonde() {position = new(BondeX, 625) };
   BondeX += 100;
 }
 
 //-----------------------------------------------------------------------------------------------------------
 
-bool startText = true;
+int Scen = 0;
 bool pjäs1Selected = false;
 Vector2 valdpjäs1 = new(0, 0);
 Vector2 valdpjäs2 = new(0, 0);
@@ -88,7 +86,7 @@ while (!Raylib.WindowShouldClose())
     Vdrottning.position = new(425, 720);
 
     Vkns[0].position = new(225, 720);             //Vkns = (V)Vit (kn)Knäkt (s)flera/array av
-    Vkns[1].position = new(520, 720);
+    Vkns[1].position = new(525, 720);
 
     Vhs[0].position = new(125, 720);
     Vhs[1].position = new(625, 720);
@@ -96,13 +94,29 @@ while (!Raylib.WindowShouldClose())
     Vts[0].position = new(25, 720);
     Vts[1].position = new(725, 720);
 
-    startText = true;
+
+    Skung.position = new(325, 20); ;          // S står för Svarta pjäser. t.ex Skung står för Svart kung.
+    Sdrottning.position = new(425, 20);
+
+    Skns[0].position = new(225, 20);             //Skns = (S)Svart (kn)Knäkt (s)flera/array av
+    Skns[1].position = new(525, 20);
+
+    Shs[0].position = new(125, 20);
+    Shs[1].position = new(625, 20);
+
+    Sts[0].position = new(25, 20);
+    Sts[1].position = new(725, 20);
+
+
+    Scen = 0;
     pjäs1Selected = false;
     valdpjäs1 = new(0, 0);
     valdpjäs2 = new(0, 0);
     valdpjäs1numer = 0;
     valdpjäs2numer = 0;
     valdruta1 = 0;
+
+
   }
 
 
@@ -148,15 +162,19 @@ while (!Raylib.WindowShouldClose())
     }
   }
 
-  if (Raylib.IsMouseButtonDown(MouseButton.Left)) { startText = false; }
-  if (startText) { Raylib.DrawText("Tyck på en pjäs för \n\n\n\natt se den (normala)\n\n\n\n gångstilen för pjäsen", 100, 275, 50, Raylib_cs.Color.Blue); }
+  if (Raylib.IsMouseButtonPressed(MouseButton.Left)||Raylib.IsMouseButtonPressed(MouseButton.Right)) { Scen++; }
+  
+  
+  if (Scen==0) { Raylib.DrawText("Vänsterklicka på en pjäs för \n\n\n\natt se den (normala)\n\n\n\n gångstilen för pjäsen", 100, 275, 50, Raylib_cs.Color.Blue); }
+  if (Scen==1) { Raylib.DrawText("Högerklicka sedan på rutan som\n\n\n\ndu vill flytta pjäsen till eller\n\n\n\nhögerklicka på den valda pjäsen\n\n\n\nför att avbryta förlyttningen ", 100, 275, 50, Raylib_cs.Color.Blue); }
+  
 
   List<Vector2> pjäser = new() { /*Vit kung*/ Vkung.position,
-                   /*Vit Drottning*/ Vdrottning.position,
-                   /*Vit Knäkt*/ Vkns[0].position, Vkns[1].position,
-                   /*Vit Häst*/ Vhs[0].position
-                   /*Vit Torn*/ 
-                   /*Vit Bonde*/ 
+                                /*Vit Drottning*/ Vdrottning.position,
+                               /*Vit Knäkt*/ Vkns[0].position, Vkns[1].position,
+                              /*Vit Häst*/ Vhs[0].position
+                             /*Vit Torn*/ 
+                            /*Vit Bonde*/ 
                  };
 
   //-----------------------------------------------------------------------------------------------------------------------------------
@@ -208,7 +226,7 @@ while (!Raylib.WindowShouldClose())
               }
 
             }
-        if (valdpjäs1 == Vdrottning.position) { Vdrottning.position = new(ruta[valdruta].X + 25, ruta[valdruta].Y + 20); }
+        if (valdpjäs1 == Vdrottning.position) { Vdrottning.position = new(ruta[valdruta].X + 25, ruta[valdruta].Y + 20); pjäs1Selected = false; valdpjäs1=new(0,0);}
 
 
 
@@ -270,33 +288,9 @@ while (!Raylib.WindowShouldClose())
   Vbs[6].display();
   Vbs[7].display();
 
-  if (valdpjäs1 == Vkung.position)
-  {
-   gångStilVitKung();
-  }
+  if (valdpjäs1 == Vkung.position) { Vkung.gångStil(); }
 
 
   Raylib.EndDrawing();
 
 }
-
- void gångStilVitKung(){
- for (int CircleX = 0; CircleX < 3; CircleX++)
-    {
-      for (int CircleY = 0; CircleY < 3; CircleY++)
-      {
-        if (Vkung.position.X == 25 && CircleX == 0) { CircleX = 1; }
-
-        if (Vkung.position.Y == 20 && CircleY == 0) { CircleY = 1; }
-        if (!((CircleX == 1) && (CircleY == 1)))
-        {
-          Raylib.DrawCircle((int)Vkung.position.X - 100 + (100 * CircleX) + 25, (int)Vkung.position.Y - 100 + (100 * CircleY) + 30, 10, Raylib_cs.Color.Blue);
-          Raylib.DrawLine((int)Vkung.position.X + 19, (int)Vkung.position.Y + 30, (int)Vkung.position.X - 100 + (100 * CircleX) + 25, (int)Vkung.position.Y - 100 + (100 * CircleY) + 30, Raylib_cs.Color.Blue);
-        }
-        if (Vkung.position.Y == 720 && CircleY == 1) { CircleY = 2; }
-        
-
-      }if (Vkung.position.X==725 && CircleX == 1)  {CircleX=2;  }
-    }
-  
- }
