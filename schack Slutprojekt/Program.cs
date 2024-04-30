@@ -8,75 +8,78 @@ Raylib.SetTargetFPS(540);
 
 
 
-Allapjäser.Vtorn[] Vts;
-Allapjäser.Vhäst[] Vhs;
-Allapjäser.Vknäkt[] Vkns;
-Allapjäser.Vbonde[] Vbs;
+Pjäser.VitTorn[] vitTorn;
+Pjäser.VitHäst[] vitHäst;
+Pjäser.VitKnäkt[] vitKnäkt;
+Pjäser.VitBonde[] vitBonde;
 
-Allapjäser.Storn[] Sts;
-Allapjäser.Shäst[] Shs;
-Allapjäser.Sknäkt[] Skns;
-Allapjäser.Sbonde[] Sbs;
+Pjäser.SvartTorn[] svartTorn;
+Pjäser.SvartHäst[] svartHäst;
+Pjäser.SvartKnäkt[] svartKnäkt;
+Pjäser.SvartBonde[] svartBonde;
+//-----------------------------------------------------------------------------------------------------------------------------------------------------
+                                               
+                                                   //Arrayer för de olika pjäserna som får olika egenskaper
+//                                                   beroende på vilken pjäsklass dom tilldelas.
+vitTorn = new Pjäser.VitTorn[2];
+vitKnäkt = new Pjäser.VitKnäkt[2];
+vitHäst = new Pjäser.VitHäst[2];
+vitBonde = new Pjäser.VitBonde[8];             
+//                                                  Skapar även hur många av den pjäsen det ska vara 
+svartTorn = new Pjäser.SvartTorn[2];//          t.ex att svartHäst bara ska ha 2 platser eftersom
+svartKnäkt = new Pjäser.SvartKnäkt[2];//        att det bara ska finnas två svarta hästar på planen.        
+svartHäst = new Pjäser.SvartHäst[2];
+svartBonde = new Pjäser.SvartBonde[8];
+//-----------------------------------------------------------------------------------------------------------------------------------------------------
+Pjäser.SvartKung svartKung = new Pjäser.SvartKung() {position = new(325,20) };                       
+Pjäser.SvartDrottning svartDrottning = new Pjäser.SvartDrottning() { position = new(425,20) };
+svartTorn[0] = new Pjäser.SvartTorn() { position = new(25,20) };
+svartTorn[1] = new Pjäser.SvartTorn() { position = new(725,20) };
 
-Vts = new Allapjäser.Vtorn[2];
-Vkns = new Allapjäser.Vknäkt[2];
-Vhs = new Allapjäser.Vhäst[2];
-Vbs = new Allapjäser.Vbonde[8];
+svartHäst[0] = new Pjäser.SvartHäst() { position = new(125,20) };
+svartHäst[1] = new Pjäser.SvartHäst() { position = new(625,20) };
 
-Sts = new Allapjäser.Storn[2];
-Skns = new Allapjäser.Sknäkt[2];
-Shs = new Allapjäser.Shäst[2];
-Sbs = new Allapjäser.Sbonde[8];
+svartKnäkt[0] = new Pjäser.SvartKnäkt() { position = new(225,20) };
+svartKnäkt[1] = new Pjäser.SvartKnäkt() { position = new(525,20) };
 
-Allapjäser.Skung Skung = new Allapjäser.Skung() {position = new(325,20) };                       // S står för svarta pjäser. t.ex Skung står för svart kung.
-Allapjäser.Sdrottning Sdrottning = new Allapjäser.Sdrottning() { position = new(425,20) };
-Sts[0] = new Allapjäser.Storn() { position = new(25,20) };
-Sts[1] = new Allapjäser.Storn() { position = new(725,20) };
-
-Shs[0] = new Allapjäser.Shäst() { position = new(125,20) };
-Shs[1] = new Allapjäser.Shäst() { position = new(625,20) };
-
-Skns[0] = new Allapjäser.Sknäkt() { position = new(225,20) };
-Skns[1] = new Allapjäser.Sknäkt() { position = new(525,20) };
-
-int BondeX = 25;
+int bondeX = 25;
 for (int r = 0; r < 8; r++)
 {
-  Sbs[r] = new Allapjäser.Sbonde() { position= new(BondeX, 120) };
-  BondeX += 100;
+  svartBonde[r] = new Pjäser.SvartBonde() { position = new(bondeX, 120) };
+  bondeX += 100;
 }
 
-Allapjäser.Vkung Vkung = new Allapjäser.Vkung() { position = new(325, 720) };          // V står för vita pjäser. t.ex Vkung står för vit kung.
-Allapjäser.Vdrottning Vdrottning = new Allapjäser.Vdrottning() { position = new(425, 720) };
+Pjäser.VitKung Vkung = new Pjäser.VitKung() { position = new(325, 720) };          
+Pjäser.VitDrottning Vdrottning = new Pjäser.VitDrottning() { position = new(425, 720) };
 
-Vkns[0] = new Allapjäser.Vknäkt() { position = new(225, 720) };             //Vkns = (V)Vit (kn)Knäkt (s)flera/array av
-Vkns[1] = new Allapjäser.Vknäkt() { position = new(525, 720) };
+vitKnäkt[0] = new Pjäser.VitKnäkt() { position = new(225, 720) };             
+vitKnäkt[1] = new Pjäser.VitKnäkt() { position = new(525, 720) };
 
-Vhs[0] = new Allapjäser.Vhäst() { position = new(125, 720) };
-Vhs[1] = new Allapjäser.Vhäst() { position = new(625, 720) };
+vitHäst[0] = new Pjäser.VitHäst() { position = new(125, 720) };
+vitHäst[1] = new Pjäser.VitHäst() { position = new(625, 720) };
 
-Vts[0] = new Allapjäser.Vtorn() { position = new(25, 720) };
-Vts[1] = new Allapjäser.Vtorn() { position = new(725, 720) };
-
-
+vitTorn[0] = new Pjäser.VitTorn() { position = new(25, 720) };
+vitTorn[1] = new Pjäser.VitTorn() { position = new(725, 720) };
 
 
-BondeX = 25;
+
+
+bondeX = 25;
 for (int r = 0; r < 8; r++)
 {
-  Vbs[r] = new Allapjäser.Vbonde() {position = new(BondeX, 625) };
-  BondeX += 100;
+  vitBonde[r] = new Pjäser.VitBonde() {position = new(bondeX, 625) };
+  bondeX += 100;
 }
 
 //-----------------------------------------------------------------------------------------------------------
 
 int Scen = 0;
 bool pjäs1Selected = false;
-Vector2 valdpjäs1 = new(0, 0);
-Vector2 valdpjäs2 = new(0, 0);
-int valdpjäs1numer = 0;
-int valdpjäs2numer = 0;
-int valdruta1 = 0;
+Vector2 valdPjäs1 = new(0, 0);
+Vector2 valdPjäs2 = new(0, 0);
+int valdPjäs1Numer = 0;
+int valdPjäs2Numer = 0;
+int valdRuta1 = 0;
 
 while (!Raylib.WindowShouldClose())
 {
@@ -85,36 +88,36 @@ while (!Raylib.WindowShouldClose())
     Vkung.position = new(325, 720); ;          // V står för vita pjäser. t.ex Vkung står för vit kung.
     Vdrottning.position = new(425, 720);
 
-    Vkns[0].position = new(225, 720);             //Vkns = (V)Vit (kn)Knäkt (s)flera/array av
-    Vkns[1].position = new(525, 720);
+    vitKnäkt[0].position = new(225, 720);             //Vkns = (V)Vit (kn)Knäkt (s)flera/array av
+    vitKnäkt[1].position = new(525, 720);
 
-    Vhs[0].position = new(125, 720);
-    Vhs[1].position = new(625, 720);
+    vitHäst[0].position = new(125, 720);
+    vitHäst[1].position = new(625, 720);
 
-    Vts[0].position = new(25, 720);
-    Vts[1].position = new(725, 720);
+    vitTorn[0].position = new(25, 720);
+    vitTorn[1].position = new(725, 720);
 
 
-    Skung.position = new(325, 20); ;          // S står för Svarta pjäser. t.ex Skung står för Svart kung.
-    Sdrottning.position = new(425, 20);
+    svartKung.position = new(325, 20); ;          // S står för Svarta pjäser. t.ex Skung står för Svart kung.
+    svartDrottning.position = new(425, 20);
 
-    Skns[0].position = new(225, 20);             //Skns = (S)Svart (kn)Knäkt (s)flera/array av
-    Skns[1].position = new(525, 20);
+    svartKnäkt[0].position = new(225, 20);             //Skns = (S)Svart (kn)Knäkt (s)flera/array av
+    svartKnäkt[1].position = new(525, 20);
 
-    Shs[0].position = new(125, 20);
-    Shs[1].position = new(625, 20);
+    svartHäst[0].position = new(125, 20);
+    svartHäst[1].position = new(625, 20);
 
-    Sts[0].position = new(25, 20);
-    Sts[1].position = new(725, 20);
+    svartTorn[0].position = new(25, 20);
+    svartTorn[1].position = new(725, 20);
 
 
     Scen = 0;
     pjäs1Selected = false;
-    valdpjäs1 = new(0, 0);
-    valdpjäs2 = new(0, 0);
-    valdpjäs1numer = 0;
-    valdpjäs2numer = 0;
-    valdruta1 = 0;
+    valdPjäs1 = new(0, 0);
+    valdPjäs2 = new(0, 0);
+    valdPjäs1Numer = 0;
+    valdPjäs2Numer = 0;
+    valdRuta1 = 0;
 
 
   }
@@ -171,8 +174,8 @@ while (!Raylib.WindowShouldClose())
 
   List<Vector2> pjäser = new() { /*Vit kung*/ Vkung.position,
                                 /*Vit Drottning*/ Vdrottning.position,
-                               /*Vit Knäkt*/ Vkns[0].position, Vkns[1].position,
-                              /*Vit Häst*/ Vhs[0].position
+                               /*Vit Knäkt*/ vitKnäkt[0].position, vitKnäkt[1].position,
+                              /*Vit Häst*/ vitHäst[0].position
                              /*Vit Torn*/ 
                             /*Vit Bonde*/ 
                  };
@@ -187,8 +190,8 @@ while (!Raylib.WindowShouldClose())
     && Raylib.IsMouseButtonPressed(MouseButton.Left) && !pjäs1Selected)
     {
       pjäs1Selected = true;
-      valdpjäs1 = pjäs1;
-      valdpjäs1numer = pjäs;
+      valdPjäs1 = pjäs1;
+      valdPjäs1Numer = pjäs;
     }
   }
 
@@ -203,30 +206,30 @@ while (!Raylib.WindowShouldClose())
       {
         for (int pjäs = 0; pjäs < pjäser.Count; pjäs++)  //börjar på ett för 
         {
-          if (pjäs==valdpjäs1numer) {pjäs++;}
+          if (pjäs==valdPjäs1Numer) {pjäs++;}
           Vector2 pjäs2 = pjäser[pjäs];
 
           if ((pjäs2.X < ruta[valdruta].X + 100 && pjäs2.X > ruta[valdruta].X)
                  && (pjäs2.Y < ruta[valdruta].Y + 100 && pjäs2.Y > ruta[valdruta].Y))
           {
-            valdpjäs2 = pjäs2;
-            valdpjäs2numer = pjäs;
-            valdruta1 = valdruta;
+            valdPjäs2 = pjäs2;
+            valdPjäs2Numer = pjäs;
+            valdRuta1 = valdruta;
           }
         }
-            if (valdpjäs1 == Vkung.position)
+            if (valdPjäs1 == Vkung.position)
             {
-              Vkung.position = new(ruta[valdruta].X + 25, ruta[valdruta].Y + 20); pjäs1Selected = false; valdpjäs1=new(0,0);
-              if (valdpjäs2 == Vkung.position)
+              Vkung.position = new(ruta[valdruta].X + 25, ruta[valdruta].Y + 20); pjäs1Selected = false; valdPjäs1=new(0,0);
+              if (valdPjäs2 == Vkung.position)
               {
-                if (valdpjäs2numer == 0) { Vkung.position=Vkung.tagen;}
-                if (valdpjäs2numer == 1) { Vdrottning.position = Vdrottning.tagen; }
-                if (valdpjäs2numer == 2) { }
-                if (valdpjäs2numer == 3) { }
+                if (valdPjäs2Numer == 0) { Vkung.position=Vkung.tagen;}
+                if (valdPjäs2Numer == 1) { Vdrottning.position = Vdrottning.tagen; }
+                if (valdPjäs2Numer == 2) { }
+                if (valdPjäs2Numer == 3) { }
               }
 
             }
-        if (valdpjäs1 == Vdrottning.position) { Vdrottning.position = new(ruta[valdruta].X + 25, ruta[valdruta].Y + 20); pjäs1Selected = false; valdpjäs1=new(0,0);}
+        if (valdPjäs1 == Vdrottning.position) { Vdrottning.position = new(ruta[valdruta].X + 25, ruta[valdruta].Y + 20); pjäs1Selected = false; valdPjäs1=new(0,0);}
 
 
 
@@ -243,52 +246,52 @@ while (!Raylib.WindowShouldClose())
 
 
 
-  Skung.display();
-  Sdrottning.display();
+  svartKung.Rendera();
+  svartDrottning.Rendera();
 
-  Skns[0].display();
-  Skns[1].display();
+  svartKnäkt[0].Rendera();
+  svartKnäkt[1].Rendera();
 
-  Shs[0].display();
-  Shs[1].display();
+  svartHäst[0].Rendera();
+  svartHäst[1].Rendera();
 
-  Sts[0].display();
-  Sts[1].display();
-
-
-  Sbs[0].display();
-  Sbs[1].display();
-  Sbs[2].display();
-  Sbs[3].display();
-  Sbs[4].display();
-  Sbs[5].display();
-  Sbs[6].display();
-  Sbs[7].display();
+  svartTorn[0].Rendera();
+  svartTorn[1].Rendera();
 
 
+  svartBonde[0].Rendera();
+  svartBonde[1].Rendera();
+  svartBonde[2].Rendera();
+  svartBonde[3].Rendera();
+  svartBonde[4].Rendera();
+  svartBonde[5].Rendera();
+  svartBonde[6].Rendera();
+  svartBonde[7].Rendera();
 
-  Vkung.display();
-  Vdrottning.display();
 
-  Vkns[0].display();
-  Vkns[1].display();
 
-  Vhs[0].display();
-  Vhs[1].display();
+  Vkung.Rendera();
+  Vdrottning.Rendera();
 
-  Vts[0].display();
-  Vts[1].display();
+  vitKnäkt[0].Rendera();
+  vitKnäkt[1].Rendera();
 
-  Vbs[0].display();
-  Vbs[1].display();
-  Vbs[2].display();
-  Vbs[3].display();
-  Vbs[4].display();
-  Vbs[5].display();
-  Vbs[6].display();
-  Vbs[7].display();
+  vitHäst[0].Rendera();
+  vitHäst[1].Rendera();
 
-  if (valdpjäs1 == Vkung.position) { Vkung.gångStil(); }
+  vitTorn[0].Rendera();
+  vitTorn[1].Rendera();
+
+  vitBonde[0].Rendera();
+  vitBonde[1].Rendera();
+  vitBonde[2].Rendera();
+  vitBonde[3].Rendera();
+  vitBonde[4].Rendera();
+  vitBonde[5].Rendera();
+  vitBonde[6].Rendera();
+  vitBonde[7].Rendera();
+
+  if (valdPjäs1 == Vkung.position) { Vkung.GångStil(); }
 
 
   Raylib.EndDrawing();
