@@ -36,26 +36,26 @@ Pjäser.SvartDrottning svartDrottning = new Pjäser.SvartDrottning() { position 
 svartTorn[0] = new Pjäser.SvartTorn() { position = new(25,20) };
 svartTorn[1] = new Pjäser.SvartTorn() { position = new(725,20) };
 
-svartHäst[0] = new Pjäser.SvartHäst() { position = new(125,20) };
+svartHäst[0] = new Pjäser.SvartHäst() { position = new(125,20) }; //  Sätter alla x och y kordinater för de svarta pjäsernas start positioner.
 svartHäst[1] = new Pjäser.SvartHäst() { position = new(625,20) };
 
 svartKnäkt[0] = new Pjäser.SvartKnäkt() { position = new(225,20) };
 svartKnäkt[1] = new Pjäser.SvartKnäkt() { position = new(525,20) };
 
 int bondeX = 25;
-for (int r = 0; r < 8; r++)
-{
+for (int r = 0; r < 8; r++) // for-loopen skapar alla x-kordinater för de svarta bönderna samtidigt 
+{                           // som den lägger in de olika x och y-värderna för de olika bönderna.
   svartBonde[r] = new Pjäser.SvartBonde() { position = new(bondeX, 120) };
   bondeX += 100;
 }
 
-Pjäser.VitKung Vkung = new Pjäser.VitKung() { position = new(325, 720) };          
-Pjäser.VitDrottning Vdrottning = new Pjäser.VitDrottning() { position = new(425, 720) };
+Pjäser.VitKung vitKung = new Pjäser.VitKung() { position = new(325, 720) };          
+Pjäser.VitDrottning vitDrottning = new Pjäser.VitDrottning() { position = new(425, 720) };
 
 vitKnäkt[0] = new Pjäser.VitKnäkt() { position = new(225, 720) };             
 vitKnäkt[1] = new Pjäser.VitKnäkt() { position = new(525, 720) };
 
-vitHäst[0] = new Pjäser.VitHäst() { position = new(125, 720) };
+vitHäst[0] = new Pjäser.VitHäst() { position = new(125, 720) }; //  Sätter alla x och y kordinater för de svarta pjäsernas start positioner.
 vitHäst[1] = new Pjäser.VitHäst() { position = new(625, 720) };
 
 vitTorn[0] = new Pjäser.VitTorn() { position = new(25, 720) };
@@ -65,8 +65,8 @@ vitTorn[1] = new Pjäser.VitTorn() { position = new(725, 720) };
 
 
 bondeX = 25;
-for (int r = 0; r < 8; r++)
-{
+for (int r = 0; r < 8; r++) // for-loopen skapar alla x-kordinater för de vita bönderna samtidigt 
+{                           // som den lägger in de olika x och y-värderna för de olika bönderna.
   vitBonde[r] = new Pjäser.VitBonde() {position = new(bondeX, 625) };
   bondeX += 100;
 }
@@ -76,19 +76,19 @@ for (int r = 0; r < 8; r++)
 int Scen = 0;
 bool pjäs1Selected = false;
 Vector2 valdPjäs1 = new(0, 0);
-Vector2 valdPjäs2 = new(0, 0);
-int valdPjäs1Numer = 0;
+Vector2 valdPjäs2 = new(0, 0);    // En samling av variablar som används senare men som skapas innan while-loopen
+int valdPjäs1Numer = 0;           // för att värderna inte ska nollställas varje gång frame'n/bilden uppdateras.
 int valdPjäs2Numer = 0;
 int valdRuta1 = 0;
 
 while (!Raylib.WindowShouldClose())
 {
-  if (Raylib.IsKeyPressed(KeyboardKey.R)) //resetknapp som sätter alla variablar till noll och pjäser til startpositionen
+  if (Raylib.IsKeyPressed(KeyboardKey.R)) //resetknapp som nollställer alla variablar och flyttar alla pjäser till sina startpositionen.
   {
-    Vkung.position = new(325, 720); ;          // V står för vita pjäser. t.ex Vkung står för vit kung.
-    Vdrottning.position = new(425, 720);
+    vitKung.position = new(325, 720); ;          
+    vitDrottning.position = new(425, 720);
 
-    vitKnäkt[0].position = new(225, 720);             //Vkns = (V)Vit (kn)Knäkt (s)flera/array av
+    vitKnäkt[0].position = new(225, 720);             
     vitKnäkt[1].position = new(525, 720);
 
     vitHäst[0].position = new(125, 720);
@@ -98,10 +98,10 @@ while (!Raylib.WindowShouldClose())
     vitTorn[1].position = new(725, 720);
 
 
-    svartKung.position = new(325, 20); ;          // S står för Svarta pjäser. t.ex Skung står för Svart kung.
+    svartKung.position = new(325, 20); ;          
     svartDrottning.position = new(425, 20);
 
-    svartKnäkt[0].position = new(225, 20);             //Skns = (S)Svart (kn)Knäkt (s)flera/array av
+    svartKnäkt[0].position = new(225, 20);             
     svartKnäkt[1].position = new(525, 20);
 
     svartHäst[0].position = new(125, 20);
@@ -135,7 +135,7 @@ while (!Raylib.WindowShouldClose())
                        /*rad 3*/0,100,200,300,400,500,600,700,
                        /*rad 2*/0,100,200,300,400,500,600,700,
                        /*rad 1*/0,100,200,300,400,500,600,700, };
-
+                                                                      // Två arrayer där den ena står för rutans x-värde medans den andra står för rutans y-värde.
   int[] rutaYPosition ={/*rad 8*/0  ,0  ,0  ,0  ,0  ,0  ,0  ,0  ,
                         /*rad 7*/100,100,100,100,100,100,100,100,
                         /*rad 6*/200,200,200,200,200,200,200,200,
@@ -144,14 +144,15 @@ while (!Raylib.WindowShouldClose())
                         /*rad 3*/500,500,500,500,500,500,500,500,
                         /*rad 2*/600,600,600,600,600,600,600,600,
                         /*rad 1*/700,700,700,700,700,700,700,700, };
-
-  List<Vector2> ruta = new() { };
+List<Vector2> ruta = new() { };
+  
   Raylib.BeginDrawing();
 
 
 
   Raylib.DrawRectangle(800, 0, 200, 800, Color.White); //rectangeln för sidobrädet där alla tagna pjäser hamnar
-  for (int vilkenRuta = 0; vilkenRuta < rutaXPosition.Length; vilkenRuta++)
+
+  for (int vilkenRuta = 0; vilkenRuta < rutaXPosition.Length; vilkenRuta++) // for-loopen skapar fyrkanter i ett mönster som bildar ett shack bräde.
   {             /* % betyder modulo. ifall resten är 0 så är talet jämt och ifall resten 1 så är talet ojämt*/
     if ((vilkenRuta % 2 == 0 && rutaYPosition[vilkenRuta] % 200 == 0) || (vilkenRuta % 2 == 1 && rutaYPosition[vilkenRuta] % 200 == 100))
     {
@@ -165,22 +166,34 @@ while (!Raylib.WindowShouldClose())
     }
   }
 
-  if (Raylib.IsMouseButtonPressed(MouseButton.Left)||Raylib.IsMouseButtonPressed(MouseButton.Right)) { Scen++; }
-  
-  
-  if (Scen==0) { Raylib.DrawText("Vänsterklicka på en pjäs för \n\n\n\natt se den (normala)\n\n\n\n gångstilen för pjäsen", 100, 275, 50, Raylib_cs.Color.Blue); }
-  if (Scen==1) { Raylib.DrawText("Högerklicka sedan på rutan som\n\n\n\ndu vill flytta pjäsen till eller\n\n\n\nhögerklicka på den valda pjäsen\n\n\n\nför att avbryta förlyttningen ", 100, 275, 50, Raylib_cs.Color.Blue); }
-  
 
-  List<Vector2> pjäser = new() { /*Vit kung*/ Vkung.position,
-                                /*Vit Drottning*/ Vdrottning.position,
-                               /*Vit Knäkt*/ vitKnäkt[0].position, vitKnäkt[1].position,
-                              /*Vit Häst*/ vitHäst[0].position
-                             /*Vit Torn*/ 
-                            /*Vit Bonde*/ 
-                 };
+  if (Raylib.IsMouseButtonPressed(MouseButton.Left)||Raylib.IsMouseButtonPressed(MouseButton.Right)) { Scen++; } // gör så att scenen byter till nästa text.
+  
+  if (Scen==0) { Raylib.DrawText("Vänsterklicka på en pjäs (Vita \n\n\n\nKungen) för att se den (normala)\n\n\n\n gångstilen för pjäsen", 100, 275, 50, Raylib_cs.Color.Blue); }
+  if (Scen==1) { Raylib.DrawText("Högerklicka sedan på rutan som\n\n\n\n(bara vita drottningen kan tas)\n\n\n\ndu vill flytta pjäsen till eller\n\n\n\nhögerklicka på den valda pjäsen\n\n\n\nför att avbryta förlyttningen ", 100, 275, 50, Raylib_cs.Color.Blue); }
+  
+ //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-  //-----------------------------------------------------------------------------------------------------------------------------------
+  List<Vector2> pjäser = new() {               // En lista på alla pjäsers positionenr
+                                 /*Vit kung*/ vitKung.position,
+                                 /*Vit Drottning*/ vitDrottning.position,
+                                 /*Vit Knäkt*/ vitKnäkt[0].position, vitKnäkt[1].position,
+                                 /*Vit Häst*/ vitHäst[0].position, vitHäst[1].position,
+                                 /*Vit Torn*/ vitTorn[0].position, vitTorn[1].position,
+                                 /*Vit Bonde*/ vitBonde[0].position, vitBonde[1].position, vitBonde[2].position, vitBonde[3].position, 
+                                               vitBonde[4].position, vitBonde[5].position, vitBonde[6].position, vitBonde[7].position,
+
+                                 /*Svart kung*/ svartKung.position,
+                                 /*Vit Drottning*/ svartDrottning.position,
+                                 /*Vit Knäkt*/ svartKnäkt[0].position, svartKnäkt[1].position, 
+                                 /*Vit Häst*/ svartHäst[0].position, svartHäst[1].position,
+                                 /*Vit Torn*/ svartTorn[0].position, svartTorn[1].position,
+                                 /*Vit Bonde*/ svartBonde[0].position, svartBonde[1].position, svartBonde[2].position, svartBonde[3].position, 
+                                               svartBonde[4].position, svartBonde[5].position, svartBonde[6].position, svartBonde[7].position
+                                };
+
+
+ 
   for (int pjäs = 0; pjäs < pjäser.Count; pjäs++)
   {
     Vector2 pjäs1 = pjäser[pjäs];
@@ -217,19 +230,19 @@ while (!Raylib.WindowShouldClose())
             valdRuta1 = valdruta;
           }
         }
-            if (valdPjäs1 == Vkung.position)
+            if (valdPjäs1 == vitKung.position)
             {
-              Vkung.position = new(ruta[valdruta].X + 25, ruta[valdruta].Y + 20); pjäs1Selected = false; valdPjäs1=new(0,0);
-              if (valdPjäs2 == Vkung.position)
+              vitKung.position = new(ruta[valdruta].X + 25, ruta[valdruta].Y + 20); pjäs1Selected = false; valdPjäs1=new(0,0);
+              if (valdPjäs2 == vitKung.position)
               {
-                if (valdPjäs2Numer == 0) { Vkung.position=Vkung.tagen;}
-                if (valdPjäs2Numer == 1) { Vdrottning.position = Vdrottning.tagen; }
+                if (valdPjäs2Numer == 0) { vitKung.position=vitKung.tagen;}
+                if (valdPjäs2Numer == 1) { vitDrottning.position = vitDrottning.tagen; }
                 if (valdPjäs2Numer == 2) { }
                 if (valdPjäs2Numer == 3) { }
               }
 
             }
-        if (valdPjäs1 == Vdrottning.position) { Vdrottning.position = new(ruta[valdruta].X + 25, ruta[valdruta].Y + 20); pjäs1Selected = false; valdPjäs1=new(0,0);}
+        if (valdPjäs1 == vitDrottning.position) { vitDrottning.position = new(ruta[valdruta].X + 25, ruta[valdruta].Y + 20); pjäs1Selected = false; valdPjäs1=new(0,0);}
 
 
 
@@ -270,8 +283,8 @@ while (!Raylib.WindowShouldClose())
 
 
 
-  Vkung.Rendera();
-  Vdrottning.Rendera();
+  vitKung.Rendera();
+  vitDrottning.Rendera();
 
   vitKnäkt[0].Rendera();
   vitKnäkt[1].Rendera();
@@ -291,7 +304,7 @@ while (!Raylib.WindowShouldClose())
   vitBonde[6].Rendera();
   vitBonde[7].Rendera();
 
-  if (valdPjäs1 == Vkung.position) { Vkung.GångStil(); }
+  if (valdPjäs1 == vitKung.position) { vitKung.GångStil(); }
 
 
   Raylib.EndDrawing();
