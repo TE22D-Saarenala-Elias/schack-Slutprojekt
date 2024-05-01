@@ -3,6 +3,7 @@ using Raylib_cs;
 public class Pjäser{
  public class VitKung
 {
+    public bool felMeddelande=false;
     public Vector2 position;
     public Vector2 tagen= new(825,20);
     Texture2D pjäsBild = Raylib.LoadTexture("vit_kung.png");
@@ -34,6 +35,7 @@ public class Pjäser{
   
  }
 //---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 }
 
 public class VitDrottning

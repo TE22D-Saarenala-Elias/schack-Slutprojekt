@@ -169,7 +169,7 @@ List<Vector2> ruta = new() { };
 
   if (Raylib.IsMouseButtonPressed(MouseButton.Left)||Raylib.IsMouseButtonPressed(MouseButton.Right)) { Scen++; } // gör så att scenen byter till nästa text.
   
-  if (Scen==0) { Raylib.DrawText("Vänsterklicka på en pjäs (Vita \n\n\n\nKungen) för att se den (normala)\n\n\n\n gångstilen för pjäsen", 100, 275, 50, Raylib_cs.Color.Blue); }
+  if (Scen==0) { Raylib.DrawText("Vänsterklicka på en pjäs (Vita \n\n\n\nKungen) för att se den normala\n\n\n\n gångstilen för pjäsen", 100, 275, 50, Raylib_cs.Color.Blue); }
   if (Scen==1) { Raylib.DrawText("Högerklicka sedan på rutan som\n\n\n\n(bara vita drottningen kan tas)\n\n\n\ndu vill flytta pjäsen till eller\n\n\n\nhögerklicka på den valda pjäsen\n\n\n\nför att avbryta förlyttningen ", 100, 275, 50, Raylib_cs.Color.Blue); }
   
  //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -232,22 +232,38 @@ List<Vector2> ruta = new() { };
         }
             if (valdPjäs1 == vitKung.position)
             {
-              vitKung.position = new(ruta[valdruta].X + 25, ruta[valdruta].Y + 20); pjäs1Selected = false; valdPjäs1=new(0,0);
-              if (valdPjäs2 == vitKung.position)
-              {
-                if (valdPjäs2Numer == 0) { vitKung.position=vitKung.tagen;}
-                if (valdPjäs2Numer == 1) { vitDrottning.position = vitDrottning.tagen; }
-                if (valdPjäs2Numer == 2) { }
-                if (valdPjäs2Numer == 3) { }
-              }
+               
+              if (((vitKung.position.X -100== ruta[valdruta].X+25)&&(vitKung.position.Y -100== ruta[valdruta].Y+20)) || 
+                  ((vitKung.position.X == ruta[valdruta].X+25)&&(vitKung.position.Y -100== ruta[valdruta].Y+20)) || 
+                  ((vitKung.position.X + 100== ruta[valdruta].X+25)&&(vitKung.position.Y -100== ruta[valdruta].Y+20)) || 
 
-            }
-        if (valdPjäs1 == vitDrottning.position) { vitDrottning.position = new(ruta[valdruta].X + 25, ruta[valdruta].Y + 20); pjäs1Selected = false; valdPjäs1=new(0,0);}
+                  ((vitKung.position.X - 100== ruta[valdruta].X+25)&&(vitKung.position.Y== ruta[valdruta].Y+20)) || 
+                  ((vitKung.position.X + 100== ruta[valdruta].X+25)&&(vitKung.position.Y== ruta[valdruta].Y+20)) || 
+
+                  ((vitKung.position.X - 100== ruta[valdruta].X+25)&&(vitKung.position.Y +100== ruta[valdruta].Y+20)) || 
+                  ((vitKung.position.X == ruta[valdruta].X+25)&&(vitKung.position.Y +100== ruta[valdruta].Y+20)) || 
+                  ((vitKung.position.X + 100 == ruta[valdruta].X+25)&&(vitKung.position.Y +100== ruta[valdruta].Y+20)) )
+              {
+                
+              
+                vitKung.position = new(ruta[valdruta].X + 25, ruta[valdruta].Y + 20);
+                if (valdPjäs2 == vitKung.position)
+                {
+                  if (valdPjäs2Numer == 0) { vitKung.position=vitKung.tagen;}
+                  if (valdPjäs2Numer == 1) { vitDrottning.position = vitDrottning.tagen; }
+                  if (valdPjäs2Numer == 2) { }
+                  if (valdPjäs2Numer == 3) { }
+                }
+              } else{  vitKung.felMeddelande=true;  }
+            }                        
+            
+            if (valdPjäs1 == vitDrottning.position) { vitDrottning.position = new(ruta[valdruta].X + 25, ruta[valdruta].Y + 20); }
 
 
 
       }
     }
+     pjäs1Selected = false; valdPjäs1=new(0,0);
   }
 
 
@@ -303,6 +319,20 @@ List<Vector2> ruta = new() { };
   vitBonde[5].Rendera();
   vitBonde[6].Rendera();
   vitBonde[7].Rendera();
+
+
+ 
+    
+  if (vitKung.felMeddelande==true)
+  {
+    Raylib.DrawText("Kungen är gammal och kan bara \n\n\n\n gå ett steg i taget. Vänsterklicka \n\n\n\n på kungen och sen högerklicka\n\n\n\n"+
+                    "på en av cirklarna för att\n\n\n\n förflytta kungen.", 100, 275, 50, Raylib_cs.Color.Blue);
+    if (Raylib.IsMouseButtonPressed(MouseButton.Left))
+    {
+      vitKung.felMeddelande=false;
+    }
+   
+  }
 
   if (valdPjäs1 == vitKung.position) { vitKung.GångStil(); }
 
