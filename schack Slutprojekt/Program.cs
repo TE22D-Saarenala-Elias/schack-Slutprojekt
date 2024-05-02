@@ -26,8 +26,8 @@ vitKnäkt = new Pjäser.VitKnäkt[2];
 vitHäst = new Pjäser.VitHäst[2];
 vitBonde = new Pjäser.VitBonde[8];             
 //                                                  Skapar även hur många av den pjäsen det ska vara 
-svartTorn = new Pjäser.SvartTorn[2];//          t.ex att svartHäst bara ska ha 2 platser eftersom
-svartKnäkt = new Pjäser.SvartKnäkt[2];//        att det bara ska finnas två svarta hästar på planen.        
+svartTorn = new Pjäser.SvartTorn[2];//              t.ex att svartHäst bara ska ha 2 platser eftersom
+svartKnäkt = new Pjäser.SvartKnäkt[2];//            att det bara ska finnas två svarta hästar på planen.        
 svartHäst = new Pjäser.SvartHäst[2];
 svartBonde = new Pjäser.SvartBonde[8];
 //-----------------------------------------------------------------------------------------------------------------------------------------------------
@@ -77,9 +77,9 @@ int Scen = 0;
 bool pjäs1Selected = false;
 Vector2 valdPjäs1 = new(0, 0);
 Vector2 valdPjäs2 = new(0, 0);    // En samling av variablar som används senare men som skapas innan while-loopen
-int valdPjäs1Numer = 0;           // för att värderna inte ska nollställas varje gång frame'n/bilden uppdateras.
+int valdPjäs1Numer = 0;           // för att värderna inte ska nollställas varje gång en frame/bilden uppdateras.
 int valdPjäs2Numer = 0;
-int valdRuta1 = 0;
+
 
 while (!Raylib.WindowShouldClose())
 {
@@ -117,9 +117,6 @@ while (!Raylib.WindowShouldClose())
     valdPjäs2 = new(0, 0);
     valdPjäs1Numer = 0;
     valdPjäs2Numer = 0;
-    valdRuta1 = 0;
-
-
   }
 
 
@@ -144,11 +141,11 @@ while (!Raylib.WindowShouldClose())
                         /*rad 3*/500,500,500,500,500,500,500,500,
                         /*rad 2*/600,600,600,600,600,600,600,600,
                         /*rad 1*/700,700,700,700,700,700,700,700, };
-List<Vector2> ruta = new() { };
-  
+
+List<Vector2> ruta = new() { }; // En lista som tar emot X och Y-värdern från de rutor som ritas ut.
+                                //Jag har använt en lista isället för en array för att jag vill kunna lägga till
+                                // värden i listan och kunna påverka listan allt med spelets gång.  
   Raylib.BeginDrawing();
-
-
 
   Raylib.DrawRectangle(800, 0, 200, 800, Color.White); //rectangeln för sidobrädet där alla tagna pjäser hamnar
 
@@ -169,8 +166,9 @@ List<Vector2> ruta = new() { };
 
   if (Raylib.IsMouseButtonPressed(MouseButton.Left)||Raylib.IsMouseButtonPressed(MouseButton.Right)) { Scen++; } // gör så att scenen byter till nästa text.
   
-  if (Scen==0) { Raylib.DrawText("Vänsterklicka på en pjäs (Vita \n\n\n\nKungen) för att se den normala\n\n\n\n gångstilen för pjäsen", 100, 275, 50, Raylib_cs.Color.Blue); }
-  if (Scen==1) { Raylib.DrawText("Högerklicka sedan på rutan som\n\n\n\n(bara vita drottningen kan tas)\n\n\n\ndu vill flytta pjäsen till eller\n\n\n\nhögerklicka på den valda pjäsen\n\n\n\nför att avbryta förlyttningen ", 100, 275, 50, Raylib_cs.Color.Blue); }
+  if (Scen==0) { Raylib.DrawText("I den hära versionen så är förflytt-\n\n\n\nnings koden bara implementerad för\n\n\n\nvita kungen och vita drottningen.\n\n\n\nKollisions koden är bara implementerad \n\n\n\nför när kungen tar vita drottningen.\n\n\n\n(Börja introduktionen genom att \n\n\n\nantingen höger eller vänster-klicka) ", 10, 200, 50, Raylib_cs.Color.Blue); }
+  if (Scen==1) { Raylib.DrawText("Vänsterklicka på en pjäs (Vita \n\n\n\nKungen) för att se den normala\n\n\n\n gångstilen för pjäsen", 100, 275, 50, Raylib_cs.Color.Blue); }
+  if (Scen==2) { Raylib.DrawText("(bara vita drottningen kan tas)\n\n\n\nHögerklicka sedan på rutan som\n\n\n\ndu vill flytta pjäsen till eller\n\n\n\nhögerklicka på den valda pjäsen\n\n\n\nför att avbryta förlyttningen ", 100, 275, 50, Raylib_cs.Color.Blue); }
   
  //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -208,36 +206,37 @@ List<Vector2> ruta = new() { };
     }
   }
 
-
+//-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   if (Raylib.IsMouseButtonPressed(MouseButton.Right) && pjäs1Selected)
   {
-    for (int valdruta = 0; valdruta < ruta.Count; valdruta++)
+    for (int valdruta = 0; valdruta < ruta.Count; valdruta++)  // kollar igenom alla rutor.
     {
 
-      if ((Raylib.GetMouseX() < ruta[valdruta].X + 100 && Raylib.GetMouseX() > ruta[valdruta].X)
-       && (Raylib.GetMouseY() < ruta[valdruta].Y + 100 && Raylib.GetMouseY() > ruta[valdruta].Y))
+      if ((Raylib.GetMouseX() < ruta[valdruta].X + 100 && Raylib.GetMouseX() > ruta[valdruta].X) // stannar på den rutan som ens mus är på och används som rutan man tänker flytta pjäsen till.
+       && (Raylib.GetMouseY() < ruta[valdruta].Y + 100 && Raylib.GetMouseY() > ruta[valdruta].Y)) 
       {
-        for (int pjäs = 0; pjäs < pjäser.Count; pjäs++)  //börjar på ett för 
+        for (int pjäs = 0; pjäs < pjäser.Count; pjäs++)  
         {
-          if (pjäs==valdPjäs1Numer) {pjäs++;}
+          if (pjäs==valdPjäs1Numer) {pjäs++;} // ser till att hoppa över första valda pjäsen så att pjäs 1 inte kan bli vald som pjäs 2.
           Vector2 pjäs2 = pjäser[pjäs];
 
-          if ((pjäs2.X < ruta[valdruta].X + 100 && pjäs2.X > ruta[valdruta].X)
-                 && (pjäs2.Y < ruta[valdruta].Y + 100 && pjäs2.Y > ruta[valdruta].Y))
+          if ((pjäs2.X < ruta[valdruta].X + 100 && pjäs2.X > ruta[valdruta].X)        // kollar ifall det finns en pjäs på den valda rutan och ifall det finns
+                 && (pjäs2.Y < ruta[valdruta].Y + 100 && pjäs2.Y > ruta[valdruta].Y)) // det så sparas (pjäsens position) och (nummer i listan pjäser) i två variablar. 
           {
             valdPjäs2 = pjäs2;
             valdPjäs2Numer = pjäs;
-            valdRuta1 = valdruta;
+            
           }
         }
-            if (valdPjäs1 == vitKung.position)
+            if (valdPjäs1 == vitKung.position) //kollar ifall pjäs1 är vita kungen.
             {
                
-              if (((vitKung.position.X -100== ruta[valdruta].X+25)&&(vitKung.position.Y -100== ruta[valdruta].Y+20)) || 
-                  ((vitKung.position.X == ruta[valdruta].X+25)&&(vitKung.position.Y -100== ruta[valdruta].Y+20)) || 
+              if (((vitKung.position.X -100== ruta[valdruta].X+25)&&(vitKung.position.Y -100== ruta[valdruta].Y+20)) || // if-satsen kollar ifall den valda rutan som man tänker flytta den vita kungen till
+                  ((vitKung.position.X == ruta[valdruta].X+25)&&(vitKung.position.Y -100== ruta[valdruta].Y+20)) ||     // är en av de tillåtna rutorna.
                   ((vitKung.position.X + 100== ruta[valdruta].X+25)&&(vitKung.position.Y -100== ruta[valdruta].Y+20)) || 
 
                   ((vitKung.position.X - 100== ruta[valdruta].X+25)&&(vitKung.position.Y== ruta[valdruta].Y+20)) || 
+                  ((vitKung.position.X      == ruta[valdruta].X+25)&&(vitKung.position.Y== ruta[valdruta].Y+20)) || 
                   ((vitKung.position.X + 100== ruta[valdruta].X+25)&&(vitKung.position.Y== ruta[valdruta].Y+20)) || 
 
                   ((vitKung.position.X - 100== ruta[valdruta].X+25)&&(vitKung.position.Y +100== ruta[valdruta].Y+20)) || 
@@ -246,18 +245,20 @@ List<Vector2> ruta = new() { };
               {
                 
               
-                vitKung.position = new(ruta[valdruta].X + 25, ruta[valdruta].Y + 20);
-                if (valdPjäs2 == vitKung.position)
-                {
+                vitKung.position = new(ruta[valdruta].X + 25, ruta[valdruta].Y + 20); // flyttar pjäsen till nya rutan.
+
+                if (valdPjäs2 == vitKung.position) // kollar ifall det finns en pjäs på kungens nya ruta och ifall det finns det så kollar den
+                {                                  // vilket numer pjäs2 har för att sedan lista ut vilken pjäs som ska till sidobrädet.
                   if (valdPjäs2Numer == 0) { vitKung.position=vitKung.tagen;}
                   if (valdPjäs2Numer == 1) { vitDrottning.position = vitDrottning.tagen; }
                   if (valdPjäs2Numer == 2) { }
                   if (valdPjäs2Numer == 3) { }
                 }
-              } else{  vitKung.felMeddelande=true;  }
+              } else{  vitKung.felMeddelande=true;  }  //ifall den valda ruta inte är en av de tillåtna rutorna så ändras felmeddelande för vita kungen till true.
             }                        
             
-            if (valdPjäs1 == vitDrottning.position) { vitDrottning.position = new(ruta[valdruta].X + 25, ruta[valdruta].Y + 20); }
+            if (valdPjäs1 == vitDrottning.position) // den hära koden ska vara som den ovan med vita kungen fast istället kolla när vit drottning är vald och 
+            { vitDrottning.position = new(ruta[valdruta].X + 25, ruta[valdruta].Y + 20); }
 
 
 
@@ -269,7 +270,7 @@ List<Vector2> ruta = new() { };
 
 
 
-  //---------------------------------------------------------------------------------------------------------------------------------------
+  //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 
@@ -325,8 +326,8 @@ List<Vector2> ruta = new() { };
     
   if (vitKung.felMeddelande==true)
   {
-    Raylib.DrawText("Kungen är gammal och kan bara \n\n\n\n gå ett steg i taget. Vänsterklicka \n\n\n\n på kungen och sen högerklicka\n\n\n\n"+
-                    "på en av cirklarna för att\n\n\n\n förflytta kungen.", 100, 275, 50, Raylib_cs.Color.Blue);
+    Raylib.DrawText("Kungen är gammal och kan bara \n\n\n\n gå ett steg i taget. Vänsterklicka \n\n\n\npå kungen och sen högerklicka\n\n\n\n"+
+                    "på en av cirklarna för att\n\n\n\nförflytta kungen.", 100, 275, 50, Raylib_cs.Color.Blue);
     if (Raylib.IsMouseButtonPressed(MouseButton.Left))
     {
       vitKung.felMeddelande=false;
