@@ -121,7 +121,7 @@ while (!Raylib.WindowShouldClose())
 
 
   //-------------------------------------------------------------------------------------------------------------------
-  //                              RENDERING
+  //                              RENDERING OCH COLLISION
   //---------------------------------------------------------------------------------------------------------------------
 
   int[] rutaXPosition ={/*rad 8*/0,100,200,300,400,500,600,700,
@@ -257,14 +257,14 @@ List<Vector2> ruta = new() { }; // En lista som tar emot X och Y-värdern från 
               } else{  vitKung.felMeddelande=true;  }  //ifall den valda ruta inte är en av de tillåtna rutorna så ändras felmeddelande för vita kungen till true.
             }                        
             
-            if (valdPjäs1 == vitDrottning.position) // den hära koden ska vara som den ovan med vita kungen fast istället kolla när vit drottning är vald och 
+            if (valdPjäs1 == vitDrottning.position) // den hära koden ska vara som den ovan med vita kungen fast istället kolla när vit drottning är vald och vart drottningen kan gå och sånt.
             { vitDrottning.position = new(ruta[valdruta].X + 25, ruta[valdruta].Y + 20); }
 
 
 
       }
     }
-     pjäs1Selected = false; valdPjäs1=new(0,0);
+     pjäs1Selected = false; valdPjäs1=new(0,0); // ser till att nollställa variablarna när man har högerklickat.
   }
 
 
@@ -276,7 +276,7 @@ List<Vector2> ruta = new() { }; // En lista som tar emot X och Y-värdern från 
 
 
 
-  svartKung.Rendera();
+  svartKung.Rendera(); //Rendera ritar ut bilden för pjäsen där pjäsens .position är.
   svartDrottning.Rendera();
 
   svartKnäkt[0].Rendera();
@@ -324,18 +324,19 @@ List<Vector2> ruta = new() { }; // En lista som tar emot X och Y-värdern från 
 
  
     
-  if (vitKung.felMeddelande==true)
+  if (vitKung.felMeddelande==true)  //kollar ifall felmeddelande för vita kungen är true( att spelaren har tryckt på en ruta som kungen inte får gå till).  
   {
     Raylib.DrawText("Kungen är gammal och kan bara \n\n\n\n gå ett steg i taget. Vänsterklicka \n\n\n\npå kungen och sen högerklicka\n\n\n\n"+
                     "på en av cirklarna för att\n\n\n\nförflytta kungen.", 100, 275, 50, Raylib_cs.Color.Blue);
-    if (Raylib.IsMouseButtonPressed(MouseButton.Left))
+
+    if (Raylib.IsMouseButtonPressed(MouseButton.Left)) // gör så att man kan klicka bort texten när man har läst klart.
     {
       vitKung.felMeddelande=false;
     }
    
   }
 
-  if (valdPjäs1 == vitKung.position) { vitKung.GångStil(); }
+  if (valdPjäs1 == vitKung.position) { vitKung.GångStil(); } // kollar ifall den valda pjäsen är vita kungen och i så fall ritar ut vart kungen kan gå.
 
 
   Raylib.EndDrawing();
